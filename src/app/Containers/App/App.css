@@ -1,0 +1,23 @@
+.title__text {
+  text-transform: uppercase;
+  font-size: 1.3rem !important;
+}
+
+.header {
+  background: #304066 !important;
+}
+
+.search-bar__input {
+  display: inline-block !important;
+  background: #4F5D7D !important;
+  border-color: rgb(119, 129, 139) !important;
+}
+
+.search-bar__input:focus {
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.search-bar__input::placeholder {
+  color: #3d3a3a !important;
+}
