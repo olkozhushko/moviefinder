@@ -7,7 +7,10 @@ const SearchBarContainer = () => {
     const [ searchInput, setSearchInput ] = useState("");
     
     return (
-        <SearchBar onChange={(e, data) => setSearchInput(data)}/>
+        <SearchBar 
+          value={searchInput} 
+          onChange={(data) => setSearchInput(data)}
+        />
     )
 }
 

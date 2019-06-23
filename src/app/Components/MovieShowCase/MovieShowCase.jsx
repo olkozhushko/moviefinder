@@ -1,12 +1,12 @@
 import React from "react";
 
-import FilmCardsBlock from "../../Containers/FilmCardsBlock";
+import FilmCardsContainer from "../../Containers/FilmCardsContainer";
 
 const MovieShowCase = () => {
 
     return (
         <div className="movie-showcase">
-            <FilmCardsBlock />
+            <FilmCardsContainer />
         </div>
     )
 }

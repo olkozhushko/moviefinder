@@ -1,9 +1,9 @@
 import React from "react";
 
-import Categories from "./Categories";
+import Categories from "../../Containers/CategoriesContainer";
 import RateChart from "./RateChart";
 import SectionList from "./SectionList";
-import ItemsLengthChoice from "./ItemsLengthChoice";
+
 
 const Sidebar = () => {
     return (
@@ -13,7 +13,6 @@ const Sidebar = () => {
           <SectionList />
           <SectionList />
           <SectionList />
-          <ItemsLengthChoice />
         </div>
     )
 }

@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-const SearchBar = () => {
-
-    const [ searchInput, setSearchInput ] = useState("");
-
+const SearchBar = ({ value, onChange }) => {
     return (
         <div className="search-bar w-75">
           <label htmlFor="search"></label>
           <input 
             type="text"
             className="search-bar__input form-control w-100 py-1"
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={(e) => onChange(e.target.value)}
             id="search"
-            value={searchInput}
+            value={value}
             placeholder="search..."
           />
         </div>

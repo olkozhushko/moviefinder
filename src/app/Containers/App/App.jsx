@@ -1,16 +1,21 @@
-import React from 'react';
+import React from "react";
+import { Provider } from "react-redux";
 
-import './App.css';
+import "./App.css";
 
-import Header from "../../Components/Header/Header";
-import MainContent from "../MainContent/MainContent";
+import store from "../../../store";
+
+import Header from "../../Components/Header";
+import MainContent from "../MainContent";
 
 function App() {
   return (
-    <div className="vw-100 min-vh-100">
-      <Header />
-      <MainContent />
-    </div>
+    <Provider store={store}>
+      <div className="vw-100 min-vh-100">
+        <Header />
+        <MainContent />
+      </div>
+    </Provider>
   );
 }
 
