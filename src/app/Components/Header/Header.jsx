@@ -1,13 +1,13 @@
 import React from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import SearchBarContainer from "../Containers/SearchBarContainer";
+import SearchBarContainer from "../../Containers/SearchBarContainer/SearchBarContainer";
 import Title from "./Title";
+
+import "./Header.css";
 
 const Header = () => {
   return (
-    <header className="header w-100 px-4 py-3 d-flex justify-content-around">
+    <header className="header">
       <Title />
       <SearchBarContainer />
     </header>

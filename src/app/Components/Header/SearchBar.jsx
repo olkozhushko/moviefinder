@@ -1,19 +1,25 @@
 import React from "react";
 
-const SearchBar = ({ value, onChange }) => {
-    return (
-        <div className="search-bar w-75">
-          <label htmlFor="search"></label>
-          <input 
-            type="text"
-            className="search-bar__input form-control w-100 py-1"
-            onChange={(e) => onChange(e.target.value)}
-            id="search"
-            value={value}
-            placeholder="search..."
-          />
-        </div>
-    )
-}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+const SearchBar = ({ value, onChange, onSubmit }) => {
+  return (
+    <div className="search-bar-container">
+      <form className="search-bar" onSubmit={onSubmit} role="search" autoComplete="false" >
+        <label htmlFor="search" />
+        <FontAwesomeIcon icon={faSearch} className="search-bar__icon" />
+        <input
+          type="text"
+          className="search-bar__input"
+          onChange={e => onChange(e.target.value)}
+          id="search"
+          value={value}
+          placeholder="search..."
+        />
+      </form>
+    </div>
+  );
+};
 
 export default SearchBar;

@@ -1,0 +1,15 @@
+.trailer-frame {
+  width: 300px;
+  height: 200px;
+  border-radius: 0.25rem;
+}
+
+.movie-info__general {
+  flex-basis: 70%;
+  padding: 15rem 3rem 3rem 3rem;
+}
+
+.movie_info__detailed {
+  flex-basis: 30%;
+  padding: 2rem;
+}

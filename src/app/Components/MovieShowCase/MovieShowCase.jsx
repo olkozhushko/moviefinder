@@ -1,14 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import FilmCardsContainer from "../../Containers/FilmCardsContainer";
+import FilmCardsContainer from "../../Containers/FilmCardsContainer/FilmCardsContainer";
 
-const MovieShowCase = () => {
+import "./MovieShowCase.css";
+
+const MovieShowCase = ({movieData}) => {
 
     return (
-        <div className="movie-showcase">
+        <div className="movies-showcase">
+            <h2 className="movie-showcase__movies-type">New Releases</h2>
             <FilmCardsContainer />
         </div>
     )
 }
 
-export default MovieShowCase;
+
+export default connect(mapStateToProps, null)(MovieShowCase);

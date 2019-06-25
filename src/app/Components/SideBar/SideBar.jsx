@@ -1,18 +1,15 @@
 import React from "react";
 
-import Categories from "../../Containers/CategoriesContainer";
-import RateChart from "./RateChart";
-import SectionList from "./SectionList";
+import MovieFilters from "./MovieFilters";
+import SomeBlock from "./SomeBlock";
 
+import "./SideBar.css";
 
 const Sidebar = () => {
     return (
-        <div className="sidebar">
-          <Categories />
-          <RateChart />
-          <SectionList />
-          <SectionList />
-          <SectionList />
+        <div className="page__sidebar">
+          <MovieFilters />
+          <SomeBlock />
         </div>
     )
 }
