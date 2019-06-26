@@ -1,15 +1,160 @@
 .trailer-frame {
-  width: 300px;
-  height: 200px;
-  border-radius: 0.25rem;
+  width: 250px;
+  height: 150px;
+  border-radius: 0.35rem;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 1rem rgba(129, 111, 111, 0.6);
 }
 
 .movie-info__general {
-  flex-basis: 70%;
-  padding: 15rem 3rem 3rem 3rem;
+  flex-basis: 55%;
+  padding: 14rem 3rem 3rem 3rem;
+  position: relative;
 }
 
 .movie_info__detailed {
-  flex-basis: 30%;
+  flex-basis: 45%;
   padding: 2rem;
+  padding-right: 1rem;
+  background: #FFFFFF;
 }
+
+/* general block start */
+.plot {
+  position: relative;
+  z-index: 10;
+}
+
+.plot__text {
+  color: rgb(189, 180, 180);
+  text-align: justify;
+  margin-top: 1rem;
+}
+
+.movie-info__general-overlap {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.movie-inform__basic-inform {
+  color: #FFFFFF;
+  position: relative;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.1rem  0.3rem;
+  border-radius: 0.15rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.basic-inform__title {
+  color: #cabfbf;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  display: inline-block;
+  flex-basis: 50%;
+}
+
+.basic-inform__content {
+  flex-basis: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.basic-inform__text, .basic-inform__link {
+  color: #D3D3DD;
+  font-size: 0.8rem;
+  letter-spacing: 0.12rem;
+  display: inline-block;
+  flex-basis: 50%;
+}
+
+.basic-inform__link {
+  color: #FFC546;
+}
+
+/* general block end */
+
+/* detailed block beginning */
+
+.header__text {
+  color: black;
+}
+
+.movie-info__imdb {
+  display: inline-block;
+  padding: 0.05rem 0.25rem;
+  margin-right: 0.5rem;
+  background: rgb(255, 197, 70);
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.movie-info__rating {
+  color: orangered;
+}
+
+.movie-info__votes {
+  margin-left: 1rem;
+  color: #D0D1D6;
+  font-weight: 600;
+}
+
+.movie-info__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.movie-info__poster-wrapper {
+  flex-basis: 40%;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+.movie-info__poster {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+}
+
+.movie-info__main {
+  flex-basis: 50%;
+}
+
+.inform-block {
+  margin-bottom: 1rem;
+}
+
+.inform-block__heading {
+  color: #D3D3DD;
+  text-transform: uppercase;
+  margin: 0 0 0.2rem 0;
+  letter-spacing: 0.2rem;
+}
+
+.inform-block__text {
+  color: #7B7B83;
+  margin: 0;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.extended-plot {
+  margin-top: 3rem;
+  color: #D0D1D6;
+}
+
+/* detailed block end */

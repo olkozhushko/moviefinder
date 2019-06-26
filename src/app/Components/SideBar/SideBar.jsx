@@ -1,7 +1,9 @@
 import React from "react";
 
-import MovieFilters from "./MovieFilters";
+import MovieFilters from "../../Containers/SideBar/MovieFilters";
 import SomeBlock from "./SomeBlock";
+
+
 
 import "./SideBar.css";
 

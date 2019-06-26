@@ -5,15 +5,20 @@ import FilmCardsContainer from "../../Containers/FilmCardsContainer/FilmCardsCon
 
 import "./MovieShowCase.css";
 
-const MovieShowCase = ({movieData}) => {
+const MovieShowCase = ({ movieFilter }) => {
 
     return (
         <div className="movies-showcase">
-            <h2 className="movie-showcase__movies-type">New Releases</h2>
+            <h2 className="movie-showcase__movies-type">{movieFilter}</h2>
             <FilmCardsContainer />
         </div>
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        movieFilter: state.movieFilter
+    }
+}
 
 export default connect(mapStateToProps, null)(MovieShowCase);

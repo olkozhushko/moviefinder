@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import SideBar from "../SideBar/SideBar";
 import MovieShowCase from "../MovieShowCase/MovieShowCase";
+import MovieInfoPage from "../MovieInfoPage/MovieInfoPage";
 import Loader from "./Loader";
 import Error from "./Error";
 
