@@ -8,6 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { thunkFetchAction } from "../../Actions/fetchData";
 import { setMovieFilter } from "../../Actions/setFilterAction";
 import { closeMovieModal } from "../../Actions/movieModalAction";
+import { goToFavorite, closeFavorite } from "../../Actions/FavoriteMovies";
 
 
 const filters = [
@@ -26,19 +27,25 @@ class MovieFilters  extends React.Component {
     if(!target) return;
 
     if(target.classList.contains("new-releases")) {
-
-      this.props.closeModal();
       this.props.setFilter("New Releases");
       this.props.fetchData("https://api.themoviedb.org/3/movie/now_playing");
     } else if(target.classList.contains("trending")) {
-        this.props.closeModal();
         this.props.setFilter("Trending");
         this.props.fetchData("https://api.themoviedb.org/3/trending/movie/week");
     } else if(target.classList.contains("coming-soon")) {
-        this.props.closeModal();
         this.props.setFilter("Coming Soon");
         this.props.fetchData("https://api.themoviedb.org/3/movie/upcoming");
+    } else if(target.classList.contains("favourites")) {
+      this.props.setFilter("Favourites");
+      this.props.goToFavorite();
     }
+    
+    console.log(!target.classList.contains("favourites"));
+    if(!target.classList.contains("favourites")) {
+      this.props.closeFavorite();
+    }
+
+    this.props.closeModal();
   }
 
   render() {
@@ -61,7 +68,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: (url) => dispatch(thunkFetchAction(url)),
     setFilter: (filter) => dispatch(setMovieFilter(filter)),
-    closeModal: () => dispatch(closeMovieModal())
+    closeModal: () => dispatch(closeMovieModal()),
+    goToFavorite: () => dispatch(goToFavorite()),
+    closeFavorite: () => dispatch(closeFavorite())
   }
 }
 
