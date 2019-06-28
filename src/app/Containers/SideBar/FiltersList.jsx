@@ -1,9 +1,8 @@
 import React from "react";
-import uuid from "uuid";
 import { connect } from "react-redux";
+import uuid from "uuid";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import FiltersListItem from "../../Components/SideBar/FiltersListItem";
 
 import { thunkFetchAction } from "../../Actions/fetchData";
 import { setMovieFilter } from "../../Actions/setFilterAction";
@@ -40,7 +39,6 @@ class MovieFilters  extends React.Component {
       this.props.goToFavorite();
     }
     
-    console.log(!target.classList.contains("favourites"));
     if(!target.classList.contains("favourites")) {
       this.props.closeFavorite();
     }
@@ -53,10 +51,7 @@ class MovieFilters  extends React.Component {
       <ul className="movie-filters__list" onClick={(e) => this.handleClick(e)}>
         {filters.map(el => {
           return (
-            <li key={uuid.v4()} className={`movie-filters__item ${el.toLowerCase().split(" ").join("-")}`}>
-              {el}
-              <FontAwesomeIcon icon={faArrowRight}   className="movie-filters__icon" />
-            </li>
+            <FiltersListItem key={uuid.v4()} filter={el}/>
           );
         })}
       </ul>

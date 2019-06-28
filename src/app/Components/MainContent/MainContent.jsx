@@ -27,11 +27,14 @@ const MainContent = ({ isFetching, isErrored, isOpen, movieData}) => {
 };
 
 const mapStateToProps = state => {
+  const isFetching = state.movies.isFetching || state.movie.isFetching;
+  const isErrored = state.movies.isErrored || state.movie.isErrored;
+
   return {
-    isFetching: state.movies.isFetching,
-    isErrored: state.movies.isErrored,
     isOpen: state.movie.isOpen,
-    movieData: state.movie.movieDetails
+    movieData: state.movie.movieDetails,
+    isFetching,
+    isErrored
   };
 };
 

@@ -1,13 +1,19 @@
 import {combineReducers} from "redux";
 
-import getDataReducer from "./getDataReducer";
-import movieModalReducer from "./movieModalReducer";
-import setFilterReducer from "./setFilterReduces";
+import getDataReducer from "./fetchData";
+import movieModalReducer from "./movieModal";
+import setFilterReducer from "./setFilter";
+import addFavoriteReducer from "./FavoriteMovies";
+import paginate from "./pagination";
+
+
 
 const rootReducer = combineReducers({
   movies: getDataReducer, 
   movie: movieModalReducer,
-  movieFilter: setFilterReducer
+  movieFilter: setFilterReducer,
+  favorite: addFavoriteReducer,
+  page: paginate
 });
 
 export default rootReducer;

@@ -42,6 +42,7 @@ const MovieInfoPage = ({ data }) => {
               href={`https://www.imdb.com/title/${data.imdbId}`}
               className="basic-inform__link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {data.imdbId}</a>
           </p>
@@ -51,8 +52,8 @@ const MovieInfoPage = ({ data }) => {
         </div>
       </div>
       <section className="movie_info__detailed">
-        <header className="header">
-          <h1 className="header__text">{data.title}</h1>
+        <header className="movie-info__header">
+          <h1 className="movie-info__header-text">{data.title}</h1>
         </header>
         <p>
           <span className="movie-info__imdb">imdb</span>

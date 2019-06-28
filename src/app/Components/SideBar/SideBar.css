@@ -6,8 +6,8 @@
 }
 
 .movie-filters__item {
-  color: #ffffff;
   padding: 0.5rem 1rem;
+  color: #ffffff;
 }
 
 .movie-filters__item:hover {
@@ -32,4 +32,8 @@
 .some-block {
   border-top: 2px solid #212427;
   margin: 0 0.8rem;
+}
+
+.nav-link {
+  color: #ffffff;
 }

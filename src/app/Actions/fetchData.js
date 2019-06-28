@@ -1,25 +1,26 @@
-import  { SEARCH_FETCH } from "./constants";
+import  { MOVIES_FETCH } from "./constants";
 
 import store from "../../store";
+import { setTotalPages } from "./pagination";
 
-const { FETCH_SEARCH_DATA, FETCHED_DATA, RECEIVE_ERROR, SET_MOVIES_FILTER } = SEARCH_FETCH;
+const { FETCH_MOVIES_DATA, FETCHED_DATA, RECEIVE_ERROR } = MOVIES_FETCH;
 
 const API_KEY = "e439cc3bb62f4282847a5012c7511e5f";
 
-const fetchPost = () => {
+const fetchMoviesData = () => {
     return {
-        type: FETCH_SEARCH_DATA
+        type: FETCH_MOVIES_DATA
     };
 }
 
-const receivePost = (data) => {
+const getfetchedData = (data) => {
     return {
         type: FETCHED_DATA,
         data
     };
 };
 
-const receiveError = () => {
+const showError = () => {
     return {
         type: RECEIVE_ERROR
     };
@@ -27,19 +28,22 @@ const receiveError = () => {
 
 export const thunkFetchAction = (url, input="") => {
 
-    input = `query=${input.replace(/\s+/g, "+")}`;
+    input = input ? `&query=${input.replace(/\s+/g, "+")}` : "";
 
-    store.dispatch(fetchPost());
+    store.dispatch(fetchMoviesData());
 
     return (dispatch, getState) => {
-      return fetch(`${url}?api_key=${API_KEY}&${input}`)
+      const currentPage = getState().page.currentPage;
+      const fullUrl = `${url}?api_key=${API_KEY}${input}&page=${currentPage}`;
+
+      return fetch(fullUrl)
         .then(
             res => res.json(),
-            err => dispatch(receiveError())
+            err => dispatch(showError())
         )
         .then(data => {
             if(!data.results) {
-                dispatch(receiveError());
+                dispatch(showError());
             } else {
                 const editedData = data.results.map(el => {
                     return {
@@ -49,7 +53,8 @@ export const thunkFetchAction = (url, input="") => {
                         rating: el.vote_average
                     }
                 })
-                dispatch(receivePost(editedData));
+                dispatch(getfetchedData(editedData));
+                dispatch(setTotalPages(data.total_pages));
             }
         })
     }

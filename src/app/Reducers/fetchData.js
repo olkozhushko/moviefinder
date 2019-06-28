@@ -1,9 +1,9 @@
-import  { SEARCH_FETCH } from "../Actions/constants";
+import  { MOVIES_FETCH } from "../Actions/constants";
 
-const { FETCH_SEARCH_DATA, FETCHED_DATA, RECEIVE_ERROR } = SEARCH_FETCH;
+const { FETCH_MOVIES_DATA, FETCHED_DATA, RECEIVE_ERROR } = MOVIES_FETCH;
 
 const initialState = {
-    fetchedData: [{title: "american pie", poster: "https://images.pexels.com/photos/2395264/pexels-photo-2395264.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}],
+    fetchedData: {},
     isFetching: false,
     isErrored: false,
     movieFilter: "New Releases"
@@ -11,7 +11,7 @@ const initialState = {
 
 const getDataReducers = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_SEARCH_DATA:
+        case FETCH_MOVIES_DATA:
             return {
                 ...state, 
                 isFetching: true,
@@ -20,7 +20,10 @@ const getDataReducers = (state = initialState, action) => {
         case FETCHED_DATA:
             return {
                 ...state,
-                fetchedData: action.data,
+                fetchedData: action.data.reduce((prev, curr) => {
+                  prev[curr.id] = curr;
+                  return prev;
+                }, {}),
                 isFetching: false,
                 isErrored: false
             }

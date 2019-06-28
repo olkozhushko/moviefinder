@@ -1,6 +1,6 @@
 import React from "react";
 
-import MovieFilters from "../../Containers/SideBar/MovieFilters";
+import MovieFilters from "../../Containers/SideBar/FiltersList";
 import SomeBlock from "./SomeBlock";
 
 
