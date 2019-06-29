@@ -24,7 +24,7 @@ const SearchBarContainer = ({ fetchMovies, closeModal, closeFavorite, setFilter 
             closeModal();
             closeFavorite();
             setFilter(`Search Results related to "${searchInput}"`);
-            fetchMovies(`https://api.themoviedb.org/3/search/movie`, searchInput);
+            fetchMovies(`search/movie`, searchInput);
             setSearchInput("");
           }}
         />
