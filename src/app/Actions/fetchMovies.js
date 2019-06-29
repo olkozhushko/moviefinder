@@ -1,4 +1,4 @@
-import  { MOVIES_FETCH } from "./constants";
+import  { MOVIES_FETCH } from "../../constants";
 
 import store from "../../store";
 import { setTotalPages } from "./pagination";
@@ -26,15 +26,15 @@ const showError = () => {
     };
 };
 
-export const thunkFetchAction = (url, input="") => {
+export const thunkFetchMoviesAction = (url, input="") => {
 
     input = input ? `&query=${input.replace(/\s+/g, "+")}` : "";
-
+    
     store.dispatch(fetchMoviesData());
 
     return (dispatch, getState) => {
       const currentPage = getState().page.currentPage;
-      const fullUrl = `${url}?api_key=${API_KEY}${input}&page=${currentPage}`;
+      const fullUrl = `https://api.themoviedb.org/3/${url}?api_key=${API_KEY}${input}&page=${currentPage}`;
 
       return fetch(fullUrl)
         .then(

@@ -1,14 +1,14 @@
 import React from "react";
 
 import SearchBarContainer from "../../Containers/SearchBarContainer/SearchBarContainer";
-import Title from "./Title";
+import TitleContainer from "../../Containers/Header/TitleContainer";
 
 import "./Header.css";
 
 const Header = () => {
   return (
     <header className="header">
-      <Title />
+      <TitleContainer />
       <SearchBarContainer />
     </header>
   );

@@ -16,7 +16,7 @@ const FiltersListItem = ({filter}) => {
       <Link
         to={`/${filter.replace(/\s/g, "")}`}
       >
-        <div style={{color: "#ffffff", textDecoration: "none"}}>{filter}</div>
+        <button type="button" className="movie-filters__btn-link">{filter}</button>
       </Link>
       <FontAwesomeIcon icon={faArrowRight} className="movie-filters__icon" />
     </li>

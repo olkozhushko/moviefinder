@@ -109,7 +109,6 @@ MovieInfoPage.defaultProps = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     data: state.movie.movieDetails
   }

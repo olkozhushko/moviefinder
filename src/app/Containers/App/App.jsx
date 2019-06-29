@@ -6,12 +6,12 @@ import MainContent from "../../Components/MainContent/MainContent";
 
 import "./App.css";
 
-import { thunkFetchAction } from "../../Actions/fetchData";
+import { thunkFetchMoviesAction } from "../../Actions/fetchMovies";
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.fetchData("https://api.themoviedb.org/3/movie/now_playing");
+    this.props.fetchMovies("movie/now_playing");
   }
 
   render() {
@@ -25,7 +25,7 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: (type, typeInput) => dispatch(thunkFetchAction(type, typeInput))
+  fetchMovies: (type, typeInput) => dispatch(thunkFetchMoviesAction(type, typeInput))
 });
 
 export default connect(

@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 
 import MovieCard from "../../Components/MovieShowCase/MovieCard";
 
-import { fetchThunkMovie, fetchThunkMovieCredits } from "../../Actions/movieModalAction";
-import { 
-  addToFavorite, 
-  removeFromFavorite 
-} from "../../Actions/FavoriteMovies";
+import { fetchThunkMovie, fetchThunkMovieCredits } from "../../Actions/movieModal";
+import { addToFavorite, removeFromFavorite } from "../../Actions/favoriteMovies";
+import { getFavoriteMovies } from "../../Reducers";
 
 class FilmCardsContainer extends React.Component {
 
@@ -56,22 +54,22 @@ class FilmCardsContainer extends React.Component {
 }
 
 FilmCardsContainer.propTypes = {
+  addToFavorite: PropTypes.func.isRequired,
+  removeFromFavorite: PropTypes.func.isRequired,
+  fetchMovieCredits: PropTypes.func.isRequired,
+  isFavoritesOpen: PropTypes.bool.isRequired,
   fetchedMovies: PropTypes.object.isRequired,
   favoriteMovies: PropTypes.object.isRequired,
   fetchMovie: PropTypes.func.isRequired,
-  addToFavorite: PropTypes.func.isRequired,
-  removeFromFavorite: PropTypes.func.isRequired,
-  isFavoritesOpen: PropTypes.bool.isRequired,
   activeBookMarks: PropTypes.array.isRequired,
-  fetchMovieCredits: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
   return {
     fetchedMovies: state.movies.fetchedData,
-    favoriteMovies: state.favorite.data,
     isFavoritesOpen: state.favorite.isFavoritesOpen,
-    activeBookMarks: state.favorite.ui.activeBookMarks
+    activeBookMarks: state.favorite.ui.activeBookMarks,
+    favoriteMovies: getFavoriteMovies(state)
   };
 };
 

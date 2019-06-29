@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import FilmCardsContainer from "../../Containers/FilmCardsContainer/FilmCardsContainer";
-import Pagination from "../Pagination/Pagination";
+import PaginationContainer from "../../Containers/Pagination/PaginationContainer";
 
 import "./MovieShowCase.css";
 
@@ -12,7 +12,7 @@ const MovieShowCase = ({ movieFilter }) => {
         <div className="movies-showcase">
             <h2 className="movie-showcase__movies-type">{movieFilter}</h2>
             <FilmCardsContainer />
-            <Pagination />
+            <PaginationContainer />
         </div>
     )
 }

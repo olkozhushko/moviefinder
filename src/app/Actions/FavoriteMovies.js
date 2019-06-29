@@ -1,4 +1,4 @@
-import { FAVORITE } from "./constants";
+import { FAVORITE } from "../../constants";
 
 const { ADD_MOVIE, GO_TO_FAVORITES, CLOSE_FAVORITE, REMOVE_FROM_FAVORITE } = FAVORITE;
 

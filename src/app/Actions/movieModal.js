@@ -1,4 +1,4 @@
-import { MOVIE_FETCH } from "../Actions/constants";
+import { MOVIE_FETCH } from "../../constants";
 
 import store from "../../store";
 

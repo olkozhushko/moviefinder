@@ -1,4 +1,4 @@
-import { MOVIE_FETCH } from "../Actions/constants";
+import { MOVIE_FETCH } from "../../constants";
 
 const {
   OPEN_MOVIE_MODAL,
@@ -15,13 +15,14 @@ const initialState = {
   movieDetails: {}
 };
 
-const movieModalReducer = (state = initialState, action) => {
+const movieModal = (state = initialState, action) => {
   switch (action.type) {
     case OPEN_MOVIE_MODAL:
       return {
         ...state,
         isOpen: true,
         isFetching: true,
+        isErrored: false,
         movieId: action.movieId
       };
     case FETCH_MOVIE_DATA:
@@ -32,7 +33,8 @@ const movieModalReducer = (state = initialState, action) => {
     case CLOSE_MOVIE_MODAL:
       return {
         ...state,
-        isOpen: false
+        isOpen: false,
+        isErrored: false
       };
     case FETCH_CREDITS:
       return {
@@ -50,4 +52,4 @@ const movieModalReducer = (state = initialState, action) => {
   }
 };
 
-export default movieModalReducer;
+export default movieModal;

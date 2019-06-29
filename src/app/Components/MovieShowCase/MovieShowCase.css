@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 0;
-  justify-content: space-around;
+  justify-content: center;
   align-content: space-around;
 }
 
@@ -13,6 +13,7 @@
 
 .movie-card {
   flex-basis: 18%;
+  margin-right: 2%;
   height: 50vh;
   border-radius: 0.05rem;
   position: relative;

@@ -4,52 +4,62 @@ import uuid from "uuid";
 
 import FiltersListItem from "../../Components/SideBar/FiltersListItem";
 
-import { thunkFetchAction } from "../../Actions/fetchData";
-import { setMovieFilter } from "../../Actions/setFilterAction";
-import { closeMovieModal } from "../../Actions/movieModalAction";
-import { goToFavorite, closeFavorite } from "../../Actions/FavoriteMovies";
+import { thunkFetchMoviesAction } from "../../Actions/fetchMovies";
+import { setMovieFilter } from "../../Actions/filters";
+import { closeMovieModal } from "../../Actions/movieModal";
+import { goToFavorite, closeFavorite } from "../../Actions/favoriteMovies";
+import { setTotalPages, resetCurrentPage } from "../../Actions/pagination";
 
+import { getPagesNumbers } from "../../Reducers/index";
 
-const filters = [
-  "New Releases",
-  "Trending",
-  "Coming Soon",
-  "Favourites",
-  "Watch Later"
-];
+const filters = {
+  "New Releases": "movie/now_playing",
+  "Trending": "trending/movie/week",
+  "Coming Soon": "movie/upcoming",
+  "Favourites": "",
+  "Watch Later": ""
+};
 
 class MovieFilters  extends React.Component {
+
+  //helper function to avoid code repeating;
+  dispatchFuncs(filter) {
+    this.props.setFilter(filter);
+    this.props.fetchMovies(filters[filter]);
+    this.props.closeFavorite();
+    this.props.resetCurrentPage();
+    this.props.closeModal();
+  }
   
   handleClick(e) {
     let target = e.target.closest("li");
 
     if(!target) return;
 
-    if(target.classList.contains("new-releases")) {
-      this.props.setFilter("New Releases");
-      this.props.fetchData("https://api.themoviedb.org/3/movie/now_playing");
-    } else if(target.classList.contains("trending")) {
-        this.props.setFilter("Trending");
-        this.props.fetchData("https://api.themoviedb.org/3/trending/movie/week");
-    } else if(target.classList.contains("coming-soon")) {
-        this.props.setFilter("Coming Soon");
-        this.props.fetchData("https://api.themoviedb.org/3/movie/upcoming");
-    } else if(target.classList.contains("favourites")) {
+    if (target.classList.contains("new-releases")) {
+      this.dispatchFuncs("New Releases");
+    } 
+
+    else if (target.classList.contains("trending")) {
+        this.dispatchFuncs("Trending");
+    } 
+
+    else if(target.classList.contains("coming-soon")) {
+        this.dispatchFuncs("Coming Soon");
+    } 
+    
+    else if(target.classList.contains("favourites")) {
       this.props.setFilter("Favourites");
+      this.props.setPagesNumbers(this.props.pagesNumber);
       this.props.goToFavorite();
     }
-    
-    if(!target.classList.contains("favourites")) {
-      this.props.closeFavorite();
-    }
-
-    this.props.closeModal();
+  
   }
 
   render() {
     return (
       <ul className="movie-filters__list" onClick={(e) => this.handleClick(e)}>
-        {filters.map(el => {
+        {Object.keys(filters).map(el => {
           return (
             <FiltersListItem key={uuid.v4()} filter={el}/>
           );
@@ -59,14 +69,22 @@ class MovieFilters  extends React.Component {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    fetchData: (url) => dispatch(thunkFetchAction(url)),
-    setFilter: (filter) => dispatch(setMovieFilter(filter)),
-    closeModal: () => dispatch(closeMovieModal()),
-    goToFavorite: () => dispatch(goToFavorite()),
-    closeFavorite: () => dispatch(closeFavorite())
+    pagesNumber: getPagesNumbers(state)
   }
 }
 
-export default connect(null, mapDispatchToProps)(MovieFilters);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchMovies: (url) => dispatch(thunkFetchMoviesAction(url)),
+    setFilter: (filter) => dispatch(setMovieFilter(filter)),
+    closeModal: () => dispatch(closeMovieModal()),
+    goToFavorite: () => dispatch(goToFavorite()),
+    closeFavorite: () => dispatch(closeFavorite()),
+    setPagesNumbers: (data) => dispatch(setTotalPages(data)),
+    resetCurrentPage: () => dispatch(resetCurrentPage())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieFilters);

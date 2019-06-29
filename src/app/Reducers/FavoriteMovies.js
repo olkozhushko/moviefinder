@@ -1,4 +1,4 @@
-import { FAVORITE } from "../Actions/constants";
+import { FAVORITE } from "../../constants";
 
 const { ADD_MOVIE, GO_TO_FAVORITES, CLOSE_FAVORITE, REMOVE_FROM_FAVORITE } = FAVORITE;
 
@@ -10,7 +10,7 @@ const initialState = {
   }
 }
 
-const addFavoriteReducer = (state = initialState, action) => {
+const favoriteMovies = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_MOVIE:
@@ -53,4 +53,4 @@ const addFavoriteReducer = (state = initialState, action) => {
   }
 }
 
-export default addFavoriteReducer;
+export default favoriteMovies;

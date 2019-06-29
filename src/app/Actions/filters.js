@@ -1,4 +1,4 @@
-import { SET_MOVIES_FILTER } from "./constants";
+import { SET_MOVIES_FILTER } from "../../constants";
 
 export const setMovieFilter = (filter) => {
   return {

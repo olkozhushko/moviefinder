@@ -1,4 +1,4 @@
-import  { MOVIES_FETCH } from "../Actions/constants";
+import  { MOVIES_FETCH } from "../../constants";
 
 const { FETCH_MOVIES_DATA, FETCHED_DATA, RECEIVE_ERROR } = MOVIES_FETCH;
 
@@ -9,7 +9,7 @@ const initialState = {
     movieFilter: "New Releases"
 }
 
-const getDataReducers = (state = initialState, action) => {
+const fetchMovies = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_MOVIES_DATA:
             return {
@@ -38,4 +38,4 @@ const getDataReducers = (state = initialState, action) => {
     }
 }
 
-export default getDataReducers;
+export default fetchMovies;
