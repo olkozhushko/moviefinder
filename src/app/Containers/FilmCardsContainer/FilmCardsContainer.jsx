@@ -28,10 +28,12 @@ class FilmCardsContainer extends React.Component {
       isFavoritesOpen,
       activeBookMarks
     } = this.props;
-
+    
+    //depending on if we went to favorite movies choose correct movies set
     const movies = isFavoritesOpen ? favoriteMovies : fetchedMovies;
 
     if (!Object.keys(movies).length) return null;
+    
     return (
       <div className="movies-container">
         {Object.keys(movies).map(key => {

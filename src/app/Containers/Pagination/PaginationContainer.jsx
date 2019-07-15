@@ -17,6 +17,8 @@ const filters = {
   "Watch Later": ""
 };
 
+
+
 class PaginationContainer extends React.Component {
 
   handleClicks = e => {
@@ -33,11 +35,20 @@ class PaginationContainer extends React.Component {
     }
 
     if (!this.props.isFavoritesOpen) {
-      this.props.fetchData(filters[this.props.filter]);
+
+      //if we don't go to favorite movies page so we can fetch 
+      //data for requested page with certain number and the filter value;
+      if(this.props.filter.includes("Search")) {
+        console.log(this.props.searchInput);
+        this.props.fetchData("search/movie", this.props.searchInput);
+      } else {
+        this.props.fetchData(filters[this.props.filter]);
+      }
     }
   };
 
   render() {
+    //getting pagination layout using current data
     const pages = getPageLayout(this.props.pageData);
     return (
       <Pagination 
@@ -49,18 +60,25 @@ class PaginationContainer extends React.Component {
   }
 }
 
+
+
 PaginationContainer.propTypes = {
   pageData: PropTypes.object.isRequired,
   goToNext: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  searchInput: PropTypes.string.isRequired,
+  isFavoritesOpen: PropTypes.bool.isRequired,
   goToPrevious: PropTypes.func.isRequired,
-  goToChosen: PropTypes.func.isRequired
+  goToChosen: PropTypes.func.isRequired,
+  fetchData: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
   return {
     pageData: state.page,
     filter: state.movieFilter,
-    isFavoritesOpen: state.favorite.isFavoritesOpen
+    isFavoritesOpen: state.favorite.isFavoritesOpen,
+    searchInput: state.searchInput
   };
 };
 
@@ -69,7 +87,7 @@ const mapDispatchToProps = dispatch => {
     goToNext: () => dispatch(goToNextPage()),
     goToPrevious: () => dispatch(goBackPage()),
     goToChosen: data => dispatch(goToChosenPage(data)),
-    fetchData: partUrl => dispatch(thunkFetchMoviesAction(partUrl))
+    fetchData: (partUrl, input) => dispatch(thunkFetchMoviesAction(partUrl, input))
   };
 };
 

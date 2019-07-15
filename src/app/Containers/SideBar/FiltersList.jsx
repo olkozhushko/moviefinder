@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import uuid from "uuid";
 
 import FiltersListItem from "../../Components/SideBar/FiltersListItem";
@@ -16,13 +17,12 @@ const filters = {
   "New Releases": "movie/now_playing",
   "Trending": "trending/movie/week",
   "Coming Soon": "movie/upcoming",
-  "Favourites": "",
-  "Watch Later": ""
+  "Favourites": ""
 };
 
 class MovieFilters  extends React.Component {
 
-  //helper function to avoid code repeating;
+  //helper functions to be invoked to avoid code repeating;
   dispatchFuncs(filter) {
     this.props.setFilter(filter);
     this.props.fetchMovies(filters[filter]);
@@ -50,6 +50,8 @@ class MovieFilters  extends React.Component {
     
     else if(target.classList.contains("favourites")) {
       this.props.setFilter("Favourites");
+      this.props.closeModal();
+      this.props.resetCurrentPage();
       this.props.setPagesNumbers(this.props.pagesNumber);
       this.props.goToFavorite();
     }
@@ -68,6 +70,17 @@ class MovieFilters  extends React.Component {
     );
   }
 };
+
+MovieFilters.propTypes = {
+  pagesNumber: PropTypes.number.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  goToFavorite: PropTypes.func.isRequired,
+  closeFavorite: PropTypes.func.isRequired,
+  setPagesNumbers: PropTypes.func.isRequired,
+  resetCurrentPage: PropTypes.func.isRequired
+}
 
 const mapStateToProps = (state) => {
   return {

@@ -5,6 +5,7 @@ import movieModal from "./movieModal";
 import filters from "./filters";
 import favoriteMovies from "./favoriteMovies";
 import pagination from "./pagination";
+import searchInput from "./searchInput";
 
 
 
@@ -13,17 +14,21 @@ const rootReducer = combineReducers({
   movie: movieModal,
   movieFilter: filters,
   favorite: favoriteMovies,
-  page: pagination
+  page: pagination,
+  searchInput
 });
 
+//retrieving favorite movies depending on what favorite-movies page we are 
+//currently on
 export const getFavoriteMovies = (state) => {
-  const activeId = state.favorite.ui.activeBookMarks;
+  const activeIds = state.favorite.ui.activeBookMarks;
   const currentPage = state.page.currentPage;
-  const pagesNumber = getPagesNumbers(state);
-
-  const activeIdToRender = activeId.slice((currentPage - 1) * pagesNumber, currentPage * pagesNumber);
   
-  const favoriteMovies = activeIdToRender.reduce((prev, curr) => {
+  //20 is number of movie items per page you can change that value on whatever you want;
+  const activeIdsToRender = activeIds.slice((currentPage - 1) * 20, currentPage * 20);
+
+
+  const favoriteMovies = activeIdsToRender.reduce((prev, curr) => {
     prev[curr] = state.favorite.data[curr];
     return prev;
   }, {});

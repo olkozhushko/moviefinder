@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Header from "../../Components/Header/Header";
-import MainContent from "../../Components/MainContent/MainContent";
+import MainContent from "../MainContent/MainContent";
 
 import "./App.css";
 
 import { thunkFetchMoviesAction } from "../../Actions/fetchMovies";
+
+
 
 class App extends React.Component {
 
@@ -22,6 +25,10 @@ class App extends React.Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  fetchMovies: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({

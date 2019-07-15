@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { thunkFetchMoviesAction } from "../../Actions/fetchMovies";
 import { setMovieFilter } from "../../Actions/filters";
@@ -22,6 +23,15 @@ const TitleContainer = ({fetchData, setFilter, closeFavorite, resetCurrentPage, 
   return (
     <Title onClick={handleTitleClick}/>
   )
+}
+
+
+TitleContainer.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  resetCurrentPage: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  closeFavorite: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => {

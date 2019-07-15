@@ -7,6 +7,7 @@ const SearchBar = ({ value, onChange, onSubmit }) => {
   return (
     <div className="search-bar-container">
       <form className="search-bar" onSubmit={onSubmit} role="search" autoComplete="false" >
+
         <label htmlFor="search" />
         <FontAwesomeIcon icon={faSearch} className="search-bar__icon" />
         <input
@@ -17,6 +18,7 @@ const SearchBar = ({ value, onChange, onSubmit }) => {
           value={value}
           placeholder="search..."
         />
+        
       </form>
     </div>
   );

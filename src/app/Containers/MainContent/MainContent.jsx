@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import SideBar from "../SideBar/SideBar";
-import MovieShowCase from "../MovieShowCase/MovieShowCase";
-import MovieInfoPage from "../MovieInfoPage/MovieInfoPage";
-import Loader from "./Loader";
-import Error from "./Error";
+import SideBar from "../../Components/SideBar/SideBar";
+import MovieShowCase from "../../Components/MovieShowCase/MovieShowCase";
+import MovieInfoPage from "../../Components/MovieInfoPage/MovieInfoPage";
+import Loader from "../../Components/MainContent/Loader";
+import Error from "../../Components/MainContent/Error";
 
-import "./MainContent.css";
+import "../../Components/MainContent/MainContent.css";
 
 const MainContent = ({ isFetching, isErrored, isOpen, movieData}) => {
   return (
@@ -25,6 +26,14 @@ const MainContent = ({ isFetching, isErrored, isOpen, movieData}) => {
     </main>
   );
 };
+
+
+MainContent.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  movieData: PropTypes.object.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  isErrored: PropTypes.bool.isRequired
+}
 
 const mapStateToProps = state => {
   const isFetching = state.movies.isFetching || state.movie.isFetching;

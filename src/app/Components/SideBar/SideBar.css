@@ -5,6 +5,10 @@
   margin-bottom: 0.5rem;
 }
 
+.movie-filters__item {
+  position: relative;
+}
+
 .movie-filters__item:hover .movie-filters__btn-link {
   background: #222B31;
   color: #EF525D;
@@ -16,7 +20,8 @@
   color: #565D63;
   position: absolute;
   top: 50%;
-  right: 2rem;
+  transform: translateY(-50%);
+  right: 0.5rem;
   display: none;
 }
 
