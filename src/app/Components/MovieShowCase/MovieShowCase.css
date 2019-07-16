@@ -64,8 +64,8 @@
 .movie-card__add-favorite {
   position: absolute;
   display: inline-block;
-  right: 1rem;
-  bottom: 5rem;
+  right: 2rem;
+  bottom: 8rem;
   font-size: 2rem;
 }
 

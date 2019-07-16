@@ -18,9 +18,7 @@ const favoriteMovies = (state = initialState, action) => {
           ...state.data,
           [action.data.id]: action.data
         },
-        ui: {
-          activeBookMarks: [...state.ui.activeBookMarks, action.data.id]
-        }
+        activeBookMarks: [...state.activeBookMarks, action.data.id]
       }
     case REMOVE_FROM_FAVORITE:
       return {
@@ -32,9 +30,8 @@ const favoriteMovies = (state = initialState, action) => {
             return prev;
           }, {})
         },
-        ui: {
-          activeBookMarks: state.ui.activeBookMarks.filter(id => id !== action.movieId)
-        }
+        
+        activeBookMarks: state.activeBookMarks.filter(id => id !== action.movieId)
       }
     case GO_TO_FAVORITES:
       return {
