@@ -56,7 +56,7 @@ const MovieInfoPage = ({ data }) => {
         <header className="movie-info__header">
           <h1 className="movie-info__header-text">{data.title}</h1>
         </header>
-        <p class="movie-info__short-desc">
+        <p className="movie-info__short-desc">
           <span className="movie-info__imdb">imdb</span>
           <span className="movie-info__rating">{data.rating}</span>/10
           <span className="movie-info__votes">{data.votes} Votes</span>
