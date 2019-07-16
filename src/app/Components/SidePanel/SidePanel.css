@@ -56,5 +56,9 @@
   .movie-filters__item {
     opacity: 0;
   }
+
+  .movie-filters__item:hover .movie-filters__icon {
+    display: none;
+  }
 }
 

@@ -103,6 +103,7 @@
     width: 0;
     overflow: hidden;
     position: fixed;
+    background: rgb(41, 46, 51);
     left: 0px;
     top: 10vh;
     bottom: 0px;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import getNormalDuration from "../../../utils/getNormalDuration";
@@ -93,20 +94,24 @@ const MovieInfoPage = ({ data }) => {
 
 MovieInfoPage.defaultProps = {
   data: {
-    background:
-      "https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    poster:
-      "https://images.pexels.com/photos/684363/pexels-photo-684363.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    rating: 6.7,
-    plot: "wfeger erebeb tebebte e tbrbrtbtt tbrr",
-    title: "King in the north",
-    votes: 45667,
-    directors: "John Carpenter, Trivia Callo",
-    genre: "Thriller, Game",
-    stars: "jorge cluny, pedro pascal",
-    extPlot: "frhrifhyigh4 uevhreiuvh4yirv uervheiuvh"
+    
   }
 };
+
+MovieInfoPage.propTypes = {
+  data: PropTypes.shape({
+    background: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    plot: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    directors: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    stars: PropTypes.string.isRequired,
+    extPlot: PropTypes.string.isRequired,
+  })
+}
 
 const mapStateToProps = (state) => {
   return {
