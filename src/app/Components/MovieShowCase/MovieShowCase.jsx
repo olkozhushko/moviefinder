@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import FilmCardsContainer from "../../Containers/FilmCardsContainer/FilmCardsContainer";
@@ -17,9 +18,13 @@ const MovieShowCase = ({ movieFilter }) => {
     )
 }
 
+MovieShowCase.propTypes = {
+    movieFilter: PropTypes.string.isRequired
+}
+
 const mapStateToProps = (state) => {
     return {
-        movieFilter: state.movieFilter
+        movieFilter: state.page.movieFilter
     }
 }
 
