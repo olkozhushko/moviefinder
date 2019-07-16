@@ -6,24 +6,26 @@ import SomeBlock from "./SomeBlock";
 
 import "./SidePanel.css";
 
-const SidePanel = ({isShown}) => {
-  
+const SidePanel = ({ isShown }) => {
   let barStyle = {
     width: "200px"
-  }
+  };
 
   barStyle = isShown ? barStyle : {};
 
   return (
-      <div className="page__sidebar" style={barStyle}>
-        <MovieFilters />
-        <SomeBlock />
-      </div>
-  )
-}
+    <div className="page__sidebar" style={barStyle}>
+      <MovieFilters />
+      <SomeBlock />
+    </div>
+  );
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isShown: state.ui.isSidePanelShown
-})
+});
 
-export default connect(mapStateToProps, null)(SidePanel);
+export default connect(
+  mapStateToProps,
+  null
+)(SidePanel);

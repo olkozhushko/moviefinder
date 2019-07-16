@@ -7,7 +7,6 @@
 
 .movie-filters__item {
   position: relative;
-  transition: opacity 0.3s linear;
 }
 
 .movie-filters__item:hover .movie-filters__btn-link {
@@ -55,6 +54,7 @@
 
   .movie-filters__item {
     opacity: 0;
+    transition: opacity 0.3s linear;
   }
 
   .movie-filters__item:hover .movie-filters__icon {

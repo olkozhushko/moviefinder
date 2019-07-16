@@ -37,8 +37,6 @@ export const thunkFetchMoviesAction = (url, input="") => {
 
       const fullUrl = `https://api.themoviedb.org/3/${url}?api_key=${API_KEY}${input}&page=${currentPage}`;
 
-      console.log("fullurl", fullUrl);
-
       return fetch(fullUrl)
         .then(
             res => res.json(),
