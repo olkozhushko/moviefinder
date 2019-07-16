@@ -51,11 +51,11 @@ const MovieInfoPage = ({ data }) => {
           <p className="plot__text">{data.plot.slice(0, 100) + "..."}</p>
         </div>
       </div>
-      <section className="movie_info__detailed">
+      <section className="movie-info__detailed">
         <header className="movie-info__header">
           <h1 className="movie-info__header-text">{data.title}</h1>
         </header>
-        <p>
+        <p class="movie-info__short-desc">
           <span className="movie-info__imdb">imdb</span>
           <span className="movie-info__rating">{data.rating}</span>/10
           <span className="movie-info__votes">{data.votes} Votes</span>
@@ -110,7 +110,7 @@ MovieInfoPage.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.movie.movieDetails
+    data: state.page.movie.movieDetails
   }
 }
 

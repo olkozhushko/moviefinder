@@ -68,3 +68,45 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 1150px) {
+  .movies-showcase {
+    flex-basis: 80%;
+  }
+
+  .page__sidebar {
+    flex-basis: 20%;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .movies-showcase {
+    flex-basis: 75%;
+  }
+
+  .page__sidebar {
+    flex-basis: 25%;
+  }
+
+  .movie-info {
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 789px) {
+  .movies-showcase {
+    flex-basis: 100%;
+  }
+
+  .page__sidebar {
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    left: 0px;
+    top: 10vh;
+    bottom: 0px;
+    z-index: 50;
+    transition: all 0.3s linear;
+  }
+}

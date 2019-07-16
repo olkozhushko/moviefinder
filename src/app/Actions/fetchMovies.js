@@ -27,15 +27,18 @@ const showError = () => {
 };
 
 export const thunkFetchMoviesAction = (url, input="") => {
-    console.log("1", input);
+    
     input = input ? `&query=${input.replace(/\s+/g, "+")}` : "";
-    console.log("2", input);
+    
     store.dispatch(fetchMoviesData());
 
     return (dispatch, getState) => {
-      const currentPage = getState().page.currentPage;
+      const currentPage = getState().page.pageState.currentPage;
+
       const fullUrl = `https://api.themoviedb.org/3/${url}?api_key=${API_KEY}${input}&page=${currentPage}`;
+
       console.log("fullurl", fullUrl);
+
       return fetch(fullUrl)
         .then(
             res => res.json(),

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import uuid from "uuid";
 
-import FiltersListItem from "../../Components/SideBar/FiltersListItem";
+import MovieFiltersItem from "../../Components/SidePanel/MovieFiltersItem";
 
 import { thunkFetchMoviesAction } from "../../Actions/fetchMovies";
 import { setMovieFilter } from "../../Actions/filters";
@@ -63,7 +63,11 @@ class MovieFilters  extends React.Component {
       <ul className="movie-filters__list" onClick={(e) => this.handleClick(e)}>
         {Object.keys(filters).map(el => {
           return (
-            <FiltersListItem key={uuid.v4()} filter={el}/>
+            <MovieFiltersItem 
+              key={uuid.v4()} 
+              filter={el}
+              isSidePanelShown={this.props.isSidePanelShown}
+            />
           );
         })}
       </ul>
@@ -84,7 +88,8 @@ MovieFilters.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    pagesNumber: getPagesNumbers(state)
+    pagesNumber: getPagesNumbers(state),
+    isSidePanelShown: state.ui.isSidePanelShown
   }
 }
 

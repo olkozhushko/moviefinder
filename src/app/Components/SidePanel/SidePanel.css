@@ -7,6 +7,7 @@
 
 .movie-filters__item {
   position: relative;
+  transition: opacity 0.3s linear;
 }
 
 .movie-filters__item:hover .movie-filters__btn-link {
@@ -46,3 +47,14 @@
   font: 1.2rem/1.2rem helvetica, sans-serif;
   text-align: left;
 }
+
+@media screen and (max-width: 789px) {
+  .movie-filters__btn-link {
+    font-size: 1.1rem;
+  }
+
+  .movie-filters__item {
+    opacity: 0;
+  }
+}
+

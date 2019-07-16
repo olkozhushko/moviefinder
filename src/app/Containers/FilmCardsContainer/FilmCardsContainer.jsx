@@ -68,9 +68,9 @@ FilmCardsContainer.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    fetchedMovies: state.movies.fetchedData,
-    isFavoritesOpen: state.favorite.isFavoritesOpen,
-    activeBookMarks: state.favorite.ui.activeBookMarks,
+    fetchedMovies: state.page.movies.fetchedData,
+    isFavoritesOpen: state.page.favorite.isFavoritesOpen,
+    activeBookMarks: state.page.favorite.activeBookMarks,
     favoriteMovies: getFavoriteMovies(state)
   };
 };

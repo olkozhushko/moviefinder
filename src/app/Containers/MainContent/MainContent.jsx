@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import SideBar from "../../Components/SideBar/SideBar";
+import SidePanel from "../../Components/SidePanel/SidePanel";
 import MovieShowCase from "../../Components/MovieShowCase/MovieShowCase";
 import MovieInfoPage from "../../Components/MovieInfoPage/MovieInfoPage";
 import Loader from "../../Components/MainContent/Loader";
 import Error from "../../Components/MainContent/Error";
+import ShowSidePanelButtonContainer from "../ShowSidePanelButtonContainer/ShowSidePanelButtonContainer";
 
 import "../../Components/MainContent/MainContent.css";
 
@@ -19,7 +20,8 @@ const MainContent = ({ isFetching, isErrored, isOpen, movieData}) => {
         <Error />
       ) : (
         <>
-          <SideBar />
+          <ShowSidePanelButtonContainer />
+          <SidePanel />
           {!isOpen ? <MovieShowCase /> : <MovieInfoPage data={movieData}/>}
         </>
       )}
@@ -36,12 +38,12 @@ MainContent.propTypes = {
 }
 
 const mapStateToProps = state => {
-  const isFetching = state.movies.isFetching || state.movie.isFetching;
-  const isErrored = state.movies.isErrored || state.movie.isErrored;
+  const isFetching = state.page.movies.isFetching || state.page.movie.isFetching;
+  const isErrored = state.page.movies.isErrored || state.page.movie.isErrored;
 
   return {
-    isOpen: state.movie.isOpen,
-    movieData: state.movie.movieDetails,
+    isOpen: state.page.movie.isOpen,
+    movieData: state.page.movie.movieDetails,
     isFetching,
     isErrored
   };

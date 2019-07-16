@@ -75,10 +75,10 @@ PaginationContainer.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    pageData: state.page,
-    filter: state.movieFilter,
-    isFavoritesOpen: state.favorite.isFavoritesOpen,
-    searchInput: state.searchInput
+    pageData: state.page.pageState,
+    filter: state.page.movieFilter,
+    isFavoritesOpen: state.page.favorite.isFavoritesOpen,
+    searchInput: state.page.searchInput
   };
 };
 

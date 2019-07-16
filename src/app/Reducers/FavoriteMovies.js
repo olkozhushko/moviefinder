@@ -5,9 +5,7 @@ const { ADD_MOVIE, GO_TO_FAVORITES, CLOSE_FAVORITE, REMOVE_FROM_FAVORITE } = FAV
 const initialState = {
   data: {},
   isFavoritesOpen: false,
-  ui: {
-    activeBookMarks: []
-  }
+  activeBookMarks: []
 }
 
 const favoriteMovies = (state = initialState, action) => {

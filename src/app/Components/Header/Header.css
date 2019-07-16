@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 20;
+  z-index: 100;
 }
 
 .header__title {
@@ -64,4 +64,10 @@
 
 .search-bar__input::placeholder {
   color: #fffefe;
+}
+
+@media screen and (max-width: 989px) {
+  .header__text {
+    font-size: 1.4rem;
+  }
 }

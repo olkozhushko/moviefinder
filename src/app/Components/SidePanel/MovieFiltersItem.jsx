@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const FiltersListItem = ({filter}) => {
+const MovieFiltersItem = ({filter, isSidePanelShown}) => {
   return (
     <li
       className={`movie-filters__item ${filter
         .toLowerCase()
         .split(" ")
         .join("-")}`}
+      style={{opacity: isSidePanelShown ? "1": "" }}
     >
       <Link
         to={`/${filter.replace(/\s/g, "")}`}
@@ -23,4 +24,4 @@ const FiltersListItem = ({filter}) => {
   );
 };
 
-export default FiltersListItem;
+export default MovieFiltersItem;

@@ -29,4 +29,8 @@ export const PAGINATION = {
   RESET_PAGE: "RESET_PAGE"
 } 
 
+export const SIDE_PANEL = {
+  SET_VISIBILITY: "SET_VISIBILITY"
+}
+
 export const SET_SEARCH_INPUT = "SET_SEARCH_INPUT";

@@ -13,14 +13,14 @@
   position: relative;
 }
 
-.movie_info__detailed {
+.movie-info__detailed {
   flex-basis: 45%;
   padding: 2rem;
   padding-right: 1rem;
   background: #FFFFFF;
 }
 
-/* general block start */
+/* general block starting */
 .plot {
   position: relative;
   z-index: 10;
@@ -131,7 +131,6 @@
 
 .movie-info__poster {
   width: 100%;
-  height: 100%;
   border-radius: 0.25rem;
 }
 
@@ -163,3 +162,52 @@
 }
 
 /* detailed block end */
+
+@media screen and (max-width: 989px) {
+  .movie-info__general {
+    flex-basis: 100%;
+  }
+
+  .movie_info__detailed {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .basic-inform__content {
+     flex-basis: 100%;
+  }
+
+  .basic-inform__title, 
+  .basic-inform__text,
+  .basic-inform__link {
+    text-align: center;
+  }
+
+  .movie-info__general {
+    padding: 5rem 1rem 2rem 1rem;
+  }
+
+  .trailer-frame {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .movie-info__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-info__poster-wrapper {
+    flex-basis: 90%;
+  }
+
+  .movie-info__main {
+    margin-top: 1rem;
+    flex-basis: 90%;
+  }
+
+  .movie-info__short-desc {
+    text-align: center;
+  }
+}
